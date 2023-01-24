@@ -53,12 +53,6 @@ spec:
             canarySubsetName: canary
             stableSubsetName: stable
       steps:
-      # explicit count
-      - setCanaryScale:
-        replicas: 3
-      # a percentage of spec.replicas
-      - setCanaryScale:
-        weight: 25
-      # matchTrafficWeight returns to the default behavior of matching the canary traffic weight
-      - setCanaryScale:
-        matchTrafficWeight: true
+      - setWeight: 10
+      - pause:
+          duration: 5m
